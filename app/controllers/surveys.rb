@@ -38,5 +38,5 @@ get '/surveys/:id' do
   #if user has taken survey, show the results
 
   #else have them take the survey
-endm
+end
 
