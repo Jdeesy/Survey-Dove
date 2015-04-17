@@ -1,0 +1,15 @@
+<div class="form">
+  <% if @user.errors.count > 0 %>
+    <% @user.errors.full_messages.each do |message| %>
+      <p><%= message %></p>
+    <% end %>
+  <% end %>
+
+  <form name="create_user" action="<%= user_new %>" onsubmit="return validateCreateUser()" method="POST">
+    <input type="text" name="user[first_name]" placeholder="First Name">
+    <input type="text" name="user[last_name]" placeholder="Last Name">
+    <input type="text" name="user[email]" placeholder="Email">
+    <%= erb :"users/_form"%>
+    <input type="submit" value="Create Account">
+  </form>
+</div>

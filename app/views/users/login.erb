@@ -1,0 +1,8 @@
+<div class="form">
+  <%= @error %>
+  <form name="login_user" action="<%= user_login %>" onsubmit="return validateLoginUser()" method="POST">
+    <%= erb :"users/_form"%>
+    <input type="submit" value="Log In">
+  </form>
+</div>
+
