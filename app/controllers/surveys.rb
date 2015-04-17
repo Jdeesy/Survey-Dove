@@ -3,12 +3,11 @@
 #index
 get '/surveys' do
   #display all surveys
-  unless session[:user_id]
-    redirect '/'
+  if session[:user_id]
+    erb :'surveys/index'
   else
-
+    redirect '/'
   end
-
 
 end
 

@@ -1,18 +1,12 @@
-get '/users' do
-  unless session[:user_id]
+post '/' do
+  if user = User.authenticate(params[:email], params[:password])
+    puts "test"
+    session[:user_id] = user.id
     redirect '/'
   else
-
+    @errors = ["Invalid email/password"]
+    erb :index
   end
-end
-
-post '/' do
-  user = User.find_by(email: params[:email])
-
-  # if user && user.password_hash = params[:password]
-  # session[:user_id] =
-  # unless session[:user_id]
-  #   redirect '/'
 end
 
 get '/users/new' do

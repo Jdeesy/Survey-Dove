@@ -31,6 +31,12 @@
   </header>
   <article>
 
+    <% if @errors %>
+      <% @errors.each do |error| %>
+        <p><%= error %></p>
+      <% end %>
+    <% end %>
+
       <%= yield %>
 
   </article>
