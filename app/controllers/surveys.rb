@@ -9,7 +9,6 @@ get '/surveys' do
 
   end
 
-
 end
 
 #new
