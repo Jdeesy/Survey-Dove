@@ -32,7 +32,7 @@ get '/surveys/:id' do
   unless session[:user_id]
     redirect '/'
   else
-
+    erb :'surveys/show'
   end
 
   #if user has taken survey, show the results
