@@ -15,22 +15,23 @@
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="/js/application.js"></script>
 
-  <title></title>
+  <title>SurveyDove - Create and Share Surveys!</title>
 
 </head>
 <body>
-  <div class="header">
+  <header>
     <h5 class="nav"><a href="<%= homepage %>">Home</a></h5>
     <% if current_user %>
-      <h5 class="nav"><a href="<%= logout %>">Logout</a></h5>
-      <h5 class="nav">Signed in as: <a href="<%= user_homepage %>"><%= current_user.username %></a></h5>
+      <%= erb :'_nav_logged_in' %>
     <% else %>
-      <h5 class="nav"><a href="<%= user_login %>">Login</a></h5>
-      <h5 class="nav"><a href="<%= user_new %>">Create an Account</a>
+      <%= erb :'_nav_logged_out' %>
     <% end %>
-  </div>
-  <div>
+  </header>
+  <article>
+
       <%= yield %>
-  </div>
+
+  </article>
+  <footer></footer>
 </body>
 </html>
