@@ -10,12 +10,24 @@ post '/' do
 end
 
 get '/users/new' do
-  unless session[:user_id]
+  if current_user
     redirect '/'
   else
-
+    erb :'users/new'
   end
+end
 
+post '/users/new' do
+  @user = User.new(name: params[:name],
+                   email: params[:email])
+  @user.password = params[:password]
+  if @user.save
+    session[:user_id] = @user.id
+    redirect "/surveys"
+  else
+    @errors = @user.errors.full_messages
+    erb :"/users/new"
+  end
 end
 
 post '/users' do
@@ -26,3 +38,4 @@ get '/users/logout' do
   user_logout
   redirect '/'
 end
+

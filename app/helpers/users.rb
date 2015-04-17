@@ -11,7 +11,7 @@ def user_logout
 end
 
 def user_new
-  ''
+  '/users/new'
 end
 
 def logout
