@@ -18,6 +18,8 @@ nav {
 }
 
 .form {
+  display: block;
+  position: relative;
   margin-top: 10px;
   text-align: center;
 }
