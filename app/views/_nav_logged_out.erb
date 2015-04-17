@@ -1,2 +1,7 @@
-<h5 class="nav"><a href="<%= user_login %>">Login</a></h5>
-<h5 class="nav"><a href="<%= user_new %>">Create an Account</a>
+<form action = "/" method = "post">
+  <input type = "text" name = "email" placeholder = "email"></input>
+  <input type = "password" name = "password" placeholder = "password"></input>
+  <input type = "submit" value = "Login"></input>
+</form>
+
+<a href="<%= user_new %>">Create an Account</a>
