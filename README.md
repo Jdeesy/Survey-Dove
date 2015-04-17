@@ -14,7 +14,7 @@
     https://trello.com/b/djTIITQR
     
     A link to your wireframes:
+    https://precursorapp.com/document/17592197599105
     
     A brief description of your team dynamic and git workflow: 
     Our team dynamics are KICK ASS!
-
