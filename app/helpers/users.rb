@@ -7,9 +7,13 @@ def user_login
 end
 
 def user_logout
-  ''
+  session[:user_id] = nil
 end
 
 def user_new
   ''
+end
+
+def logout
+  '/users/logout'
 end

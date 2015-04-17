@@ -21,3 +21,8 @@ end
 post '/users' do
 
 end
+
+get '/users/logout' do
+  user_logout
+  redirect '/'
+end
