@@ -15,9 +15,15 @@ class User < ActiveRecord::Base
   end
 
   def password=(user_input)
-    @password = Password.create(user_input)
-    self.password_hash = @password
+    if user_input.length >= 8
+      @password = BCrypt::Password.create(user_input)
+      self.password_hash = @password
+    else
+      self.errors[:password] << "Must be greater than or equal to 8 characters"
+    end
   end
+
+  def
 
   def self.authenticate(email, password)
     @user = User.find_by_email(email)
