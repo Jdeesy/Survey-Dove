@@ -22,9 +22,9 @@
   <header>
     <h5 class="nav"><a href="<%= homepage %>">Home</a></h5>
     <% if current_user %>
-      <%= erb: '_nav_logged_in' %>
+      <%= erb :'_nav_logged_in' %>
     <% else %>
-      <%= erb: '_nav_logged_out' %>
+      <%= erb :'_nav_logged_out' %>
     <% end %>
   </header>
   <article>
