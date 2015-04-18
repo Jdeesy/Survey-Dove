@@ -15,22 +15,31 @@
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="/js/application.js"></script>
 
-  <title></title>
+  <title>SurveyDove - Create and Share Surveys!</title>
 
 </head>
 <body>
-  <div class="header">
-    <h5 class="nav"><a href="<%= homepage %>">Home</a></h5>
-    <% if current_user %>
-      <h5 class="nav"><a href="<%= logout %>">Logout</a></h5>
-      <h5 class="nav">Signed in as: <a href="<%= user_homepage %>"><%= current_user.username %></a></h5>
-    <% else %>
-      <h5 class="nav"><a href="<%= user_login %>">Login</a></h5>
-      <h5 class="nav"><a href="<%= user_new %>">Create an Account</a>
+  <header>
+    <nav>
+      <a href="<%= homepage %>">Home</a>
+      <% if current_user %>
+        <%= erb :'_nav_logged_in' %>
+      <% else %>
+        <%= erb :'_nav_logged_out' %>
+      <% end %>
+    </nav>
+  </header>
+  <article>
+
+    <% if @errors %>
+      <% @errors.each do |error| %>
+        <p><%= error %></p>
+      <% end %>
     <% end %>
-  </div>
-  <div>
+
       <%= yield %>
-  </div>
+
+  </article>
+ <!--  <footer>Made by Doves from above with Love</footer> -->
 </body>
 </html>

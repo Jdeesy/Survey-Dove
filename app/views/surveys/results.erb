@@ -1,0 +1,13 @@
+<div class="container">
+	<h1><%=@survey.name%></h1>
+
+	<% @survey.questions.each do |question| %>
+		<p>Question: <%= question.prompt %></p>
+		<ul>
+			<% question.choices.each do |choice| %>
+				<li><%= choice.name %> - <%= choice.responses.count %></li>
+			<% end %>
+		</ul>
+	<% end %>
+
+</div>

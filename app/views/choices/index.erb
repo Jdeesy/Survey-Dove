@@ -1,0 +1,12 @@
+<div class = "choices">
+  <ul>
+  <% choices.each do |choice| %>
+    <li><%= erb :"choices/_show", locals: {choice: choice}%></li>
+  <% end %>
+</ul>
+</div>
+
+<form name="add_choice" action="#" method="post">
+  <input type="text" name="name" placeholder="Choice">
+  <input type="submit" value="Add Choice">
+</form>
