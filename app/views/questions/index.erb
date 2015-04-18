@@ -1,6 +1,6 @@
 <div class = "questions">
   <% @questions.each do |question| %>
-    <%= erb :"questions/show", locals: {question: question, choices: question.choices}%>
+    <%= erb :"questions/_show", locals: {question: question, choices: question.choices}%>
   <% end %>
 </div>
 

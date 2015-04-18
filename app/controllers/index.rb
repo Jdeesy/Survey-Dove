@@ -1,5 +1,6 @@
 #User routes
 get '/' do
+  session[:user_id] =1
   if session[:user_id]
     redirect '/surveys'
   else
@@ -27,31 +28,27 @@ get "/questions" do
   erb :"questions/index", locals: {questions: @questions}
 end
 
-post '/questions' do
-  puts params
+post '/questions/choice' do
 
-  if params[:name]
-    question = Question.find(1)
-    choices =  question.choices
-    choice = Choice.create!(params)
-    choices << choice
+end
 
-    if request.xhr?
-      erb :"choices/show", locals: {choice: choice}, layout: false
-    else
-      redirect "/questions"
-    end
-
+post '/surveys/:survey_id/questions' do
+  survey = Survey.find(params[:survey_id])
+  if request.xhr? && survey
+    question = Question.create!(prompt: params[:question][:prompt], survey: survey)
+    erb :"questions/_show", locals: {question: question}, layout: false
   else
-    question = Question.create!(params)
-    choices = question.choices
-
-    if request.xhr?
-      erb :"questions/show", locals: {question: question, choices: choices}, layout: false
-    else
-      redirect "/questions"
-    end
+    redirect "/surveys/#{params[:survey_id]}"
   end
+end
 
-
+post '/surveys/:survey_id/questions/:question_id' do
+  survey = Survey.find(params[:survey_id])
+  question = Question.find(params[:question_id])
+  if request.xhr? && survey && question
+    choice = Choice.create!(name: params[:choice][:name], question: question)
+    erb :"choices/_show", locals: {choice: choice}, layout: false
+  else
+    redirect "/surveys/#{params[:survey_id]}"
+  end
 end

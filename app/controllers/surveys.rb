@@ -3,7 +3,7 @@
 #index
 get '/surveys' do
   #display all surveys
-  if session[:user_id]
+  if current_user
     erb :'surveys/index'
   else
     redirect '/'
@@ -11,31 +11,35 @@ get '/surveys' do
 
 end
 
-#new
-get '/surveys/new' do
-  unless session[:user_id]
-    redirect '/'
-  else
-
-  end
-
-end
-
 #create
 post '/surveys' do
-
+  if current_user
+    survey = Survey.create!(name: params[:survey][:name], creator: current_user)
+    redirect "/surveys/#{survey.id}/new"
+  else
+    redirect '/'
+  end
 end
 
 #show
-get '/surveys/:id' do
-  unless session[:user_id]
-    redirect '/'
+get '/surveys/:id/new' do
+  @survey = Survey.find(params[:id])
+  if current_user && @survey && current_user == Survey.find(params[:id]).creator
+    erb :'surveys/new'
   else
-    erb :'surveys/show'
+    redirect '/'
   end
-
-  #if user has taken survey, show the results
-
-  #else have them take the survey
 end
+
+
+#show
+get '/surveys/:survey_id' do
+  @survey = Survey.find(params[:survey_id])
+  if current_user && @survey
+    erb :'surveys/new'
+  else
+    redirect '/'
+  end
+end
+
 
