@@ -3,7 +3,7 @@
     <h4><a href="/surveys/<%=survey.id%>"><%= survey.name %></a></h4>
   <% end %>
 
-  <form class="form" name="add_survey" action="/surveys" method="post">
+  <form name="add_survey" action="/surveys" method="post">
     <input type="text" name="name" placeholder="Survey Name">
     <input type="submit" value="Add Survey">
 </form>

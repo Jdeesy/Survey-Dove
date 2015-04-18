@@ -1,4 +1,4 @@
-<p class="question"><%= question.prompt %></p>
+<p class="question"><a href="/questions/<%=question.id%>/new"><%= question.prompt %></a></p>
 <% choices.each do |choice| %>
   <%= erb :"choices/show", locals: {choice: choice} %>
 <% end %>

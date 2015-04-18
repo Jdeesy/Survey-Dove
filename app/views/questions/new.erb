@@ -1,0 +1,13 @@
+<div class = "container">
+  <h1><%= question.prompt %></h1> 
+    <div class = "choices">
+    <% choices.each do |choice| %>
+      <%= erb :"choices/show", locals: {choice: choice}%>
+    <% end %>
+  </div>
+
+  <form name="add_choice" action="#" method="post">
+    <input type="text" name="name" placeholder="Choice">
+    <input type="submit" value="Add Choice">
+  </form>
+</div>

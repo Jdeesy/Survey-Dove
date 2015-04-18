@@ -18,14 +18,19 @@ nav {
   display: inline-block;
 }
 
-.form {
+#nav {
+  display: inline-block;
+}
+/*.form {
   display: block;
   position: relative;
   text-align: center;
-}
+}*/
 
 form{
-  display: inline-block;
+  display: block;
+  position: relative;
+  text-align: center;
 }
 
 footer{
