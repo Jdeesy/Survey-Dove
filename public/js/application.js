@@ -17,9 +17,9 @@ $(document).ready(function(){
 
   $("form[name = add_question]").submit(function(event){
       event.preventDefault();
-console.log($(this).serialize()),
+      console.log($(this).serialize()),
+      
       addQuestion = $.ajax({
-        
         url: $(this).attr("action"),
         type: "post",
         data: $(this).serialize()
@@ -28,7 +28,7 @@ console.log($(this).serialize()),
       addQuestion.done(function(response){
         console.log("Done"),
         $(".questions").append(response)
-        $("input[name = name]").val("")
+        $("input[name = prompt]").val("")
       });
     });
 
