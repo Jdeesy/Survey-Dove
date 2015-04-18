@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  $("form[name = add_choice]").submit(function(event){
+  $("form[name = add_choice]").on("click", function(event){
     event.preventDefault();
 
     addChoice = $.ajax({
@@ -15,7 +15,7 @@ $(document).ready(function(){
     });
   });
 
-  $("form[name = add_question]").submit(function(event){
+  $("form[name = add_question]").on("click",function(event){
       event.preventDefault();
       console.log($(this).serialize()),
       

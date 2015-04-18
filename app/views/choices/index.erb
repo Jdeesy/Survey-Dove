@@ -1,7 +1,9 @@
 <div class = "choices">
+  <ul>
   <% choices.each do |choice| %>
-    <%= erb :"choices/show", locals: {choice: choice}%>
+    <li><%= erb :"choices/show", locals: {choice: choice}%></li>
   <% end %>
+</ul>
 </div>
 
 <form name="add_choice" action="#" method="post">

@@ -30,8 +30,9 @@ end
 post '/questions' do
   puts params
   question = Question.create!(params)
+  choices = question.choices
   if request.xhr?
-    erb :"questions/show", locals: {question: question}, layout: false
+    erb :"questions/show", locals: {question: question, choices: choices}, layout: false
   else
     redirect "/questions"
   end
