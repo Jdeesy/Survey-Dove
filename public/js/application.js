@@ -1,12 +1,13 @@
 $(document).ready(function(){
-  $("form[name = add_choice]").on("click", function(event){
+  $("form[name = add_choice]").on("submit", function(event){
     event.preventDefault();
-
+    console.log(event),
     addChoice = $.ajax({
       url: $(this).attr("action"),
       type: "post",
-      data: $(this).serialize()
+      data: $(this).serialize(),
     });
+    console.log($(this).serialize())
 
     addChoice.done(function(response){
       console.log("Done"),
@@ -15,18 +16,20 @@ $(document).ready(function(){
     });
   });
 
-  $("form[name = add_question]").on("click",function(event){
+  $("form[name = add_question]").on("submit",function(event){
       event.preventDefault();
-      console.log($(this).serialize()),
       
       addQuestion = $.ajax({
         url: $(this).attr("action"),
         type: "post",
-        data: $(this).serialize()
+        data: $(this).serialize(),
       });
+      // console.log($(this).attr("name"))
+      // console.log($(event))
 
       addQuestion.done(function(response){
-        console.log("Done"),
+        
+        
         $(".questions").append(response)
         $("input[name = prompt]").val("")
       });

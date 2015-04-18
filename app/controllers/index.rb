@@ -29,11 +29,29 @@ end
 
 post '/questions' do
   puts params
-  question = Question.create!(params)
-  choices = question.choices
-  if request.xhr?
-    erb :"questions/show", locals: {question: question, choices: choices}, layout: false
+
+  if params[:name]
+    question = Question.find(1)
+    choices =  question.choices
+    choice = Choice.create!(params)
+    choices << choice
+
+    if request.xhr?
+      erb :"choices/show", locals: {choice: choice}, layout: false
+    else
+      redirect "/questions"
+    end
+
   else
-    redirect "/questions"
+    question = Question.create!(params)
+    choices = question.choices
+
+    if request.xhr?
+      erb :"questions/show", locals: {question: question, choices: choices}, layout: false
+    else
+      redirect "/questions"
+    end
   end
+
+
 end
