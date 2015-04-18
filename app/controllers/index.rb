@@ -31,24 +31,3 @@ end
 post '/questions/choice' do
 
 end
-
-post '/surveys/:survey_id/questions' do
-  survey = Survey.find(params[:survey_id])
-  if request.xhr? && survey
-    question = Question.create!(prompt: params[:question][:prompt], survey: survey)
-    erb :"questions/_show", locals: {question: question}, layout: false
-  else
-    redirect "/surveys/#{params[:survey_id]}"
-  end
-end
-
-post '/surveys/:survey_id/questions/:question_id' do
-  survey = Survey.find(params[:survey_id])
-  question = Question.find(params[:question_id])
-  if request.xhr? && survey && question
-    choice = Choice.create!(name: params[:choice][:name], question: question)
-    erb :"choices/_show", locals: {choice: choice}, layout: false
-  else
-    redirect "/surveys/#{params[:survey_id]}"
-  end
-end
