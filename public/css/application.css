@@ -1,5 +1,4 @@
 .container {
-  color: #2C2C2C;
   margin: 20px auto;
   width: 600px;
   padding: 0px 20px 20px 20px;
@@ -10,8 +9,15 @@
 .brand {
   display: inline;
   position: relative;
-  top: 10px;
   margin-left: 10px;
+}
+
+.icon {
+  width: 42px;
+  height: 42px;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .form {
@@ -22,6 +28,8 @@
 }
 
 body {
+  min-width: 800px;
+  color: #2C2C2C;
   background-color: #CBDFD6;
 }
 
@@ -50,6 +58,27 @@ footer{
 
 }
 
+table {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+table tr td:first-child label {
+  position: relative;
+  margin-right: 6px;
+  top: -8px;
+  float: right;
+}
+
+input {
+  padding: 2px;
+  border-radius: 2px;
+}
+
+input[type="submit"] {
+  background-color: #DC7143;
+}
+
 a, a:link, a:visited {
   color: #DC7143;
   text-decoration: none;
@@ -58,7 +87,18 @@ a, a:link, a:visited {
 a:hover {
   color: #FDA179;
   text-decoration: none;
+}
+
+header a:hover {
   text-shadow: 2px 2px 2px #2C2C2C;
+}
+
+header span {
+  color: #DC7143;
+  margin-right: 12px;
+}
+.user-signin{
+  color: #FDA179;
 }
 
 .choice {
