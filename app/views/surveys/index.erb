@@ -1,5 +1,14 @@
-<form action = '/surveys' method = "post">
-	<label for="survey[name]">New Survey:</label>
-	<input name="survey[name]" type="text" placeholder="Survey Name">
-	<input type="submit" value="Create">
-</form>
+<div class="container">
+	<ul>
+		<% @surveys.each do |survey| %>
+
+			<li><a href="/surveys/<%= survey.id %>"><%= survey.name %></a></li>
+
+		<% end %>
+	</ul>
+	<form action = '/surveys' method = "post">
+		<label for="survey[name]">New Survey:</label>
+		<input name="survey[name]" type="text" placeholder="Survey Name">
+		<input type="submit" value="Create">
+	</form>
+</div>

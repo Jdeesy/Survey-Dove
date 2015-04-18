@@ -2,7 +2,7 @@
 
 #index
 get '/surveys' do
-  #display all surveys
+  @surveys = Survey.all
   if current_user
     erb :'surveys/index'
   else
@@ -36,7 +36,7 @@ end
 get '/surveys/:survey_id' do
   @survey = Survey.find(params[:survey_id])
   if current_user && @survey
-    erb :'surveys/new'
+    erb :'surveys/show'
   else
     redirect '/'
   end
