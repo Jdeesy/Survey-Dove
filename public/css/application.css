@@ -4,6 +4,7 @@
   padding: 0px 20px 20px 20px;
   border: 2px dotted teal;
   border-radius: 15px 60px;
+  padding-top: 10px;
 }
 
 .header {
@@ -20,7 +21,6 @@ nav {
 .form {
   display: block;
   position: relative;
-  margin-top: 10px;
   text-align: center;
 }
 

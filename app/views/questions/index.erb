@@ -1,10 +1,12 @@
-<div class = "questions">
-  <% @questions.each do |question| %>
-    <%= erb :"questions/show", locals: {question: question, choices: question.choices}%>
-  <% end %>
-</div>
+<div class="container">
+  <div class = "questions">
+    <% @questions.each do |question| %>
+      <%= erb :"questions/show", locals: {question: question, choices: question.choices}%>
+    <% end %>
+  </div>
 
-<form name="add_question" action="#" method="post">
-  <input type="text" name="prompt" placeholder="Question">
-  <input type="submit" value="Add Question">
-</form>
+  <form name="add_question" action="#" method="post">
+    <input type="text" name="prompt" placeholder="Question">
+    <input type="submit" value="Add Question">
+  </form>
+</div>

@@ -1,2 +1,4 @@
 <p class="question"><%= question.prompt %></p>
-<%= erb :"choices/index", locals: {choices: choices} %>
+<% choices.each do |choice| %>
+  <%= erb :"choices/show", locals: {choice: choice} %>
+<% end %>
