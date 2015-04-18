@@ -1,4 +1,5 @@
 .container {
+  color: #2C2C2C;
   margin: 20px auto;
   width: 600px;
   padding: 0px 20px 20px 20px;
@@ -6,15 +7,11 @@
   border-radius: 15px 60px;
 }
 
-.header {
-  display: inline-block;
+.brand {
+  display: inline;
   position: relative;
-  text-align: center;
-  border-bottom: 2px solid #003366;
-}
-
-nav {
-  display: inline-block;
+  top: 10px;
+  margin-left: 10px;
 }
 
 .form {
@@ -24,12 +21,44 @@ nav {
   text-align: center;
 }
 
-form{
+body {
+  background-color: #CBDFD6;
+}
+
+header {
+  display: inline-block;
+  width: 100%;
+  height: 60px;
+  background-color: #5C4639;
+}
+
+nav {
+  display: inline-block;
+  float: right;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-right: 10px;
+}
+
+
+form {
   display: inline-block;
 }
 
 footer{
 
+}
+
+a, a:link, a:visited {
+  color: #DC7143;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #FDA179;
+  text-decoration: none;
+  text-shadow: 2px 2px 2px #2C2C2C;
 }
 
 .choice {

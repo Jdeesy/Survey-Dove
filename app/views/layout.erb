@@ -20,8 +20,8 @@
 </head>
 <body>
   <header>
+    <a href="<%= homepage %>"><h1 class="brand">SurveyDove</h1></a>
     <nav>
-      <a href="<%= homepage %>">Home</a>
       <% if current_user %>
         <%= erb :'_nav_logged_in' %>
       <% else %>
