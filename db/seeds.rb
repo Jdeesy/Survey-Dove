@@ -1,4 +1,4 @@
-User.create!(name: 'Bob', email: 'bob@gmail.com', password_hash: 'password')
+User.create!(name: 'Bob', email: 'bob@gmail.com', password: 'password')
 
 Survey.create!(creator: User.find_by(name: 'Bob'), name: "Favorite Bobs in History")
 

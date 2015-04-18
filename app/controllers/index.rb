@@ -1,6 +1,5 @@
 #User routes
 get '/' do
-  session[:user_id] = 1
   if session[:user_id]
     redirect '/surveys'
   else
