@@ -1,0 +1,10 @@
+<div class = "questions">
+  <% @questions.each do |question| %>
+    <%= erb :"questions/show", locals: {question: question, choices: question.choices}%>
+  <% end %>
+</div>
+
+<form name="add_question" action="/questions" method="post">
+  <input type="text" name="prompt" placeholder="Question">
+  <input type="submit" value="Add Question">
+</form>
