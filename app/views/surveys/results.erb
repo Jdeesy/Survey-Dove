@@ -5,7 +5,7 @@
 		<p>Question: <%= question.prompt %></p>
 		<ul>
 			<% question.choices.each do |choice| %>
-				<li><%= choice.name %> - <%= choice.responses.count %></li>
+				<li><%= choice.name %> - <%= choice.responses.count * 100 / @survey.responses.count %> %</li>
 			<% end %>
 		</ul>
 	<% end %>
