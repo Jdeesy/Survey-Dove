@@ -1,12 +1,19 @@
-<h1> <%=@survey.name%> </h1>
+<div class="container">
+	<div>
+		<h1> <%=@survey.name%> </h1>
 
-<div class="questions">
-  <% @survey.questions.each do |question| %>
-    <%= erb :"questions/_show", locals: {question: question} %>
-  <% end %>
+		<div class="questions">
+		  <% @survey.questions.each do |question| %>
+		    <%= erb :"questions/_show", locals: {question: question} %>
+		  <% end %>
+		</div>
+
+		<form name="add_question" action="/surveys/<%= @survey.id %>/questions" method="post">
+		  <input type="text" name="question[prompt]" placeholder="Question">
+		  <input type="submit" value="Add Question">
+		</form>
+	</div>
+
+	<a href="/surveys/<%= @survey.id %>"><button>Save</button></a>
+
 </div>
-
-<form name="add_question" action="/surveys/<%= @survey.id %>/questions" method="post">
-  <input type="text" name="question[prompt]" placeholder="Question">
-  <input type="submit" value="Add Question">
-</form>

@@ -10,8 +10,7 @@ $(document).ready(function(){
     });
 
     addQuestion.done(function(response){
-      $(".questions").append(response);
-      // $("input[name=\"question[prompt]]\"").val("");
+      $(response).hide().appendTo(".questions").slideDown("slow");
     });
   });
 
@@ -26,8 +25,7 @@ $(document).ready(function(){
     });
 
     addChoice.done(function(response){
-      choices.append(response);
-      // $("input[name=\"choice[name]]\"").val("");
+      $(response).hide().appendTo(choices).slideDown("fast");
     });
   });
 

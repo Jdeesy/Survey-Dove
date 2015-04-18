@@ -1,3 +1,7 @@
+# before '/*' do
+#   redirect '/' unless current_user
+# end
+
 get '/surveys' do
   @surveys = Survey.all
   if current_user
@@ -25,13 +29,28 @@ get '/surveys/:survey_id' do
   end
 end
 
-post '/surveys/:survey_id' do
-  responses = params[:question]
-  responses.each do |question, choice|
-    choice = Choice.find(choice)
-    Response.create!(choice: choice, user: current_user)
+get '/surveys/:survey_id/results' do
+  @survey = Survey.find(params[:survey_id])
+  if current_user && @survey
+    erb :'surveys/results'
+  else
+    redirect '/'
   end
-  redirect '/'
+end
+
+
+post '/surveys/:survey_id' do
+  @survey = Survey.find(params[:survey_id])
+  responses = params[:question]
+  if responses
+    responses.each do |question, choice|
+      choice = Choice.find(choice)
+      Response.create!(choice: choice, user: current_user)
+    end
+    redirect "/surveys/#{@survey.id}/results"
+  else
+    erb :'surveys/show'
+  end
 end
 
 get '/surveys/:survey_id/new' do
