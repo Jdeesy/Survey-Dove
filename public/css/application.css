@@ -46,9 +46,6 @@ nav {
   display: inline-block;
   float: right;
   position: relative;
-  top: 50%;
-  transform: translateY(-50%);
-  margin-right: 20px;
 }
 
 
@@ -120,6 +117,7 @@ header span {
   color: #CFAA99;
   margin-right: 12px;
 }
+
 .user-signin{
   color: #FDA179;
 }
