@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-  $("form[name=add_question]").on("submit",function(event){
+  $(document).on("submit", "form[name=add_question]", function(event){
     event.preventDefault();
     
     addQuestion = $.ajax({
@@ -14,7 +14,7 @@ $(document).ready(function(){
     });
   });
 
-  $("form[name=add_choice]").on("submit", function(event){
+  $(document).on("submit", "form[name=add_choice]", function(event){
     event.preventDefault();
     var choices = $(this).parent().find(".choices ul");
 
