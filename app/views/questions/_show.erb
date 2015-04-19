@@ -1,10 +1,5 @@
-<div id="question-<%= question.id %>">
-	<p class="question"><%= question.prompt %></p>
-
-	<form name="add_choice" action="/surveys/<%= question.survey.id %>/questions/<%= question.id %>" method="post">
-	  <input type="text" name="choice[name]" placeholder="Choice">
-	  <input type="submit" value="Add Choice">
-	</form>
+<div id="question-<%= question.id %>" class="question">
+	<p><%= question.prompt %></p>
 	
 	<div class="choices">
 	    <ul>
@@ -13,5 +8,10 @@
 		    <% end %>
 		</ul>
 	</div>
+
+	<form name="add_choice" action="/surveys/<%= question.survey.id %>/questions/<%= question.id %>" method="post">
+	  <input type="text" name="choice[name]" placeholder="Choice">
+	  <input type="submit" value="Add Choice">
+	</form>
 
 </div>

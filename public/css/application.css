@@ -17,6 +17,7 @@
 }
 
 .container {
+  font-weight: 100;
   margin: 20px auto;
   max-width: 660px;
   padding: 30px;
@@ -26,6 +27,7 @@
 }
 
 .brand {
+  font-weight: 100;
   display: inline;
   position: relative;
   margin-left: 10px;
@@ -51,12 +53,17 @@
   color: #FDA179;
 }
 
-.question {
-  margin-bottom: 0;
-}
-
 .choice {
   display: block;
+}
+
+.question {
+  padding-bottom: 12px;
+  border-bottom: 2px dashed teal;
+}
+
+.question p {
+  font-weight: 900;
 }
 
 html, body {
@@ -87,6 +94,10 @@ nav {
 
 form {
   display: inline-block;
+}
+
+form[name="add_choice"] input[type="submit"] {
+  margin-top: 0;
 }
 
 footer {
@@ -136,7 +147,6 @@ input[name="choice[name]"] {
 
 input[name="question[prompt]"] {
   width: 300px;
-  margin-top: 42px;
 }
 
 a, a:link, a:visited {
