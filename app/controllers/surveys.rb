@@ -14,7 +14,7 @@ end
 post '/surveys' do
   if current_user
     survey = Survey.create!(name: params[:survey][:name], creator: current_user)
-    redirect "/surveys/#{survey.id}/new"
+    redirect "/surveys/#{survey.id}/edit"
   else
     redirect '/'
   end
@@ -53,10 +53,10 @@ post '/surveys/:survey_id' do
   end
 end
 
-get '/surveys/:survey_id/new' do
+get '/surveys/:survey_id/edit' do
   @survey = Survey.find(params[:survey_id])
   if current_user && @survey && current_user == @survey.creator
-    erb :'surveys/new'
+    erb :'surveys/edit'
   else
     redirect '/'
   end
@@ -79,6 +79,6 @@ post '/surveys/:survey_id/questions/:question_id' do
     choice = Choice.create!(name: params[:choice][:name], question: question)
     erb :"choices/_show", locals: {choice: choice}, layout: false
   else
-    redirect "/surveys/#{params[:survey_id]}/new"
+    redirect "/surveys/#{params[:survey_id]}/edit"
   end
 end

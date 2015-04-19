@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-  $("form[name=add_question]").on("submit",function(event){
+  $(document).on("submit", "form[name=add_question]", function(event){
     event.preventDefault();
     
     addQuestion = $.ajax({
@@ -12,9 +12,11 @@ $(document).ready(function(){
     addQuestion.done(function(response){
       $(response).hide().appendTo(".questions").slideDown("slow");
     });
+    
+    $(this).find('input[type=\"text\"]').val("");
   });
 
-  $("form[name=add_choice]").on("submit", function(event){
+  $(document).on("submit", "form[name=add_choice]", function(event){
     event.preventDefault();
     var choices = $(this).parent().find(".choices ul");
 
@@ -27,6 +29,8 @@ $(document).ready(function(){
     addChoice.done(function(response){
       $(response).hide().appendTo(choices).slideDown("fast");
     });
+
+    $(this).find('input[type=\"text\"]').val("");
   });
 
 });

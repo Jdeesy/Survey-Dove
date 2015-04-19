@@ -1,8 +1,20 @@
 <div class="container">
+  <h2>Sign Up:</h2>
   <form class="form" action='<%= user_new %>' method='post'>
-    <input type='text' name='name' placeholder="Name"><p id="name"></p>
-    <input type='email' name='email' placeholder="Email"><p id="email"></p>
-    <input type='password' name='password' placeholder="Password"><p id="password"></p>
-    <input type='submit' value='Create Account'>
+  	<table>
+	  	<tr>
+	  		<td><label for='name'>Full Name:</label></td>
+	    	<td><input type='text' name='name' placeholder="Name"><p id="name"></p></td>
+	    </tr>
+	    <tr>
+	    	<td><label for='email'>Email:</label></td>
+	    	<td><input type='email' name='email' placeholder="Email"><p id="email"></p></td>
+	    </tr>
+	    <tr>
+	    	<td><label for='password'>Password:</label></td>
+	    	<td><input type='password' name='password' placeholder="Password"><p id="password"></p></td>
+	    </tr>
+    </table>
+	    <input type='submit' value='Create Account'>
   </form>
 </div>
