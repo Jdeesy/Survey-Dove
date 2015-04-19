@@ -19,27 +19,31 @@
 
 </head>
 <body>
-  <header>
-    <a href="<%= homepage %>"><img class="icon" src="/img/icon.png"/><h1 class="brand">SurveyDove</h1></a>
-    <nav>
-      <% if current_user %>
-        <%= erb :'_nav_logged_in' %>
-      <% else %>
-        <%= erb :'_nav_logged_out' %>
+  <div id="wrapper">
+    <header>
+      <a href="<%= homepage %>"><img class="icon" src="/img/icon.png"/><h1 class="brand">SurveyDove</h1></a>
+      <nav>
+        <% if current_user %>
+          <%= erb :'_nav_logged_in' %>
+        <% else %>
+          <%= erb :'_nav_logged_out' %>
+        <% end %>
+      </nav>
+    </header>
+    <article>
+
+      <% if @errors %>
+        <% @errors.each do |error| %>
+          <p><%= error %></p>
+        <% end %>
       <% end %>
-    </nav>
-  </header>
-  <article>
 
-    <% if @errors %>
-      <% @errors.each do |error| %>
-        <p><%= error %></p>
-      <% end %>
-    <% end %>
+        <%= yield %>
 
-      <%= yield %>
-
-  </article>
- <!--  <footer>Made by Doves from above with Love</footer> -->
+    </article>
+    <footer>
+      <div id="footer-text">Made by Doves from Above with Love in 2015</div>
+    </footer>
+  </div>
 </body>
 </html>
