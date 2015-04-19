@@ -1,9 +1,10 @@
 .container {
   margin: 20px auto;
-  width: 600px;
-  padding: 0px 20px 20px 20px;
-  border: 2px dotted teal;
-  border-radius: 15px 60px;
+  max-width: 660px;
+  padding: 30px;
+  padding-top: 0;
+  border: 4px dotted teal;
+  border-radius: 0px 40px;
 }
 
 .brand {
@@ -94,7 +95,7 @@ header a:hover {
 }
 
 header span {
-  color: #DC7143;
+  color: #CFAA99;
   margin-right: 12px;
 }
 .user-signin{
