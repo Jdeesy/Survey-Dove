@@ -76,8 +76,14 @@ input {
   border-radius: 2px;
 }
 
-input[type="submit"] {
+button, input[type="submit"] {
+  margin-top: 20px;
   background-color: #DC7143;
+}
+
+input[type="radio"] {
+  margin-left: 6px;
+  margin-right: 6px;
 }
 
 a, a:link, a:visited {
