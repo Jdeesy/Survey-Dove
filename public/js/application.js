@@ -12,6 +12,8 @@ $(document).ready(function(){
     addQuestion.done(function(response){
       $(response).hide().appendTo(".questions").slideDown("slow");
     });
+    
+    $(this).find('input[type=\"text\"]').val("");
   });
 
   $(document).on("submit", "form[name=add_choice]", function(event){
@@ -27,6 +29,8 @@ $(document).ready(function(){
     addChoice.done(function(response){
       $(response).hide().appendTo(choices).slideDown("fast");
     });
+
+    $(this).find('input[type=\"text\"]').val("");
   });
 
 });
