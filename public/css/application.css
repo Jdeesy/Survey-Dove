@@ -92,6 +92,16 @@ input[type="radio"] {
   margin-right: 6px;
 }
 
+input[name="choice[name]"] {
+  width: 276px;
+  margin-left: 24px;
+}
+
+input[name="question[prompt]"] {
+  width: 300px;
+  margin-top: 42px;
+}
+
 a, a:link, a:visited {
   color: #DC7143;
   text-decoration: none;
@@ -114,6 +124,11 @@ header span {
   color: #FDA179;
 }
 
+.question {
+  margin-bottom: 0;
+}
+
 .choice {
   display: block;
 }
+
