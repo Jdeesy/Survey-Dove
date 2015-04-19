@@ -83,6 +83,7 @@ input {
 
 button, input[type="submit"] {
   margin-top: 20px;
+  color: #2C2C2C;
   background-color: #DC7143;
 }
 
