@@ -23,7 +23,11 @@ end
 get '/surveys/:survey_id' do
   @survey = Survey.find(params[:survey_id])
   if current_user && @survey
-    erb :'surveys/show'
+    if @survey.responders.any?{ |user| user.id == session[:user_id] } 
+      redirect "/surveys/#{@survey.id}/results"
+    else
+      erb :'surveys/show'
+    end
   else
     redirect '/'
   end

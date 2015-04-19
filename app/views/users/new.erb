@@ -1,16 +1,17 @@
 <div class="container">
   <h2>Sign Up:</h2>
-  <form class="form" action='<%= user_new %>' method='post'>
+  <form class="form" onsubmit="return validateCreateUser()" name="create_user"action='<%= user_new %>' method='post'>
   	<table>
 	  	<tr>
 	  		<td><label for='name'>Full Name:</label></td>
 	    	<td><input type='text' name='name' placeholder="Name"><p id="name"></p></td>
+        <td class="full_name"></td>
 	    </tr>
-	    <tr>
+	    <tr class="email">
 	    	<td><label for='email'>Email:</label></td>
 	    	<td><input type='email' name='email' placeholder="Email"><p id="email"></p></td>
 	    </tr>
-	    <tr>
+	    <tr class="password">
 	    	<td><label for='password'>Password:</label></td>
 	    	<td><input type='password' name='password' placeholder="Password"><p id="password"></p></td>
 	    </tr>
